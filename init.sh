@@ -33,6 +33,7 @@ sudo useradd nobody
 sudo mkdir /usr/share/empty
 sudo rm -rf /tmp/vsftpd.zip
 curl -L -o /tmp/vsftpd.zip https://raw.githubusercontent.com/ayato-shitomi/ayato-hardening-for-cloud/main/src/vsftpd.zip
+unzip /tmp/vsftpd.zip -d /tmp
 
 # cd ./blue-team/vsftpd-2.3.4-infected
 # cp vsftpd /usr/local/sbin/vsftpd
