@@ -28,6 +28,7 @@ echo "user11:pass" | sudo chpasswd
 
 # vsftpdの初期化
 
+sudo systemctl stop ftpd
 sudo userdel -r nobody
 sudo useradd nobody
 sudo mkdir /usr/share/empty
@@ -46,6 +47,7 @@ sudo chown root:root /var/ftp
 sudo chmod og-w /var/ftp
 sudo mv /tmp/vsftpd/ftpd.service /etc/systemd/system/
 sudo systemctl enable ftpd
+sudo systemctl start ftpd
 
 sudo rm -rf /tmp/vsftpd.zip
 sudo rm -rf /tmp/vsftpd
