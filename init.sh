@@ -3,7 +3,6 @@
 # 必要なアプリのインストール
 
 sudo apt update
-sudo apt install -y unzip
 sudo apt install -y build-essential
 
 # ユーザーの初期化
