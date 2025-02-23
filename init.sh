@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# USERS
+# ユーザーの初期化
 
 authorized_users=("root" "ubuntu")
 users=$(awk -F: '$7 ~ /\/bin\/bash|\/bin\/sh/ {print $1}' /etc/passwd)
@@ -11,6 +11,8 @@ for user in $users; do
     fi
 done
 
+# ユーザーの追加
+
 for i in {1..11} ; do sudo useradd -m "user${i}"; done
 sudo useradd dev
 for i in {1..10} ; do echo "user${i}:user${i}" | sudo chpasswd ; done
@@ -18,9 +20,10 @@ echo "root:root" | sudo chpasswd
 echo "dev:devpass123" | sudo chpasswd
 echo "user11:pass" | sudo chpasswd
 
-# vsftpd
+# vsftpdの初期化
 
-# apt-get install build-essential
+sudo apt update
+sudo apt install build-essential
 # useradd nobody
 # mkdir /usr/share/empty
 # cd ./blue-team/vsftpd-2.3.4-infected
