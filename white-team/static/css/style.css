@@ -1,0 +1,62 @@
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Header styling */
+h1 {
+    font-size: 36px;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+/* Table styling */
+table {
+    width: 60%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Table header row */
+th {
+    background-color: #3498db;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* Even rows */
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Hover effect */
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Team column */
+td:first-child {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+/* Score column */
+td:last-child {
+    color: #e74c3c;
+    font-size: 20px;
+}
