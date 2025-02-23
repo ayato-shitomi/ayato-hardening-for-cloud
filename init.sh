@@ -2,11 +2,11 @@
 
 # 必要なアプリのインストール
 
-# sudo apt update
-# sudo apt install -y build-essential
-# sudo apt install -y python3-pip
-# pip3 install flask --break-system-packages
-# sudo apt install -y apache2
+sudo apt update
+sudo apt install -y build-essential
+sudo apt install -y python3-pip
+pip3 install flask --break-system-packages
+sudo apt install -y apache2
 
 # ユーザーの初期化
 
@@ -86,7 +86,7 @@ sudo systemctl start apache2
 # sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/' /etc/ssh/sshd_config
 # /usr/sbin/sshd -D &
 # 
-# tail -f /dev/null
+
 
 # ubuntuユーザーの初期化
 
