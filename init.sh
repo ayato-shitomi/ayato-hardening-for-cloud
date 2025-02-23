@@ -40,6 +40,10 @@ sudo mv /tmp/vsftpd/vsftpd.8 /usr/local/man/man8
 sudo mv /tmp/vsftpd/vsftpd.conf.5 /usr/local/man/man5
 sudo mv /tmp/vsftpd/vsftpd.conf /etc
 
+sudo rm -rf /tmp/vsftpd.zip
+sudo rm -rf /tmp/vsftpd
+
+
 # mkdir /var/ftp/
 # useradd -d /var/ftp ftp
 # chown root:root /var/ftp
