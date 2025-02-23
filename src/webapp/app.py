@@ -53,7 +53,7 @@ def webapp():
 		</script>
 
 		<footer>
-			<div>Fore Vietnam</div>
+			<div>Fore-Z</div>
 			<div>Address: XXXX XXX XXXX XXX XXXXXX XXXXXXXXXXXXX</div>
 			<div>Phone: +00 00 0000 0000</div>
 		</footer>

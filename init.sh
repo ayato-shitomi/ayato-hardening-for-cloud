@@ -62,6 +62,9 @@ sudo curl -o /var/www/html/webapp/app.py https://raw.githubusercontent.com/ayato
 sudo curl -o /var/www/html/webapp/README.md https://raw.githubusercontent.com/ayato-shitomi/ayato-hardening-for-cloud/main/src/webapp/README.md
 sudo curl -o /var/www/html/webapp/static/css/style.css https://raw.githubusercontent.com/ayato-shitomi/ayato-hardening-for-cloud/main/src/webapp/static/css/style.css
 sudo curl -o /var/www/html/webapp/templates/index.html https://raw.githubusercontent.com/ayato-shitomi/ayato-hardening-for-cloud/main/src/webapp/templates/index.html
+sudo curl -o /etc/systemd/system/http-flask.service https://raw.githubusercontent.com/ayato-shitomi/ayato-hardening-for-cloud/main/src/webapp/http-flask.service
+sudo systemctl enable http-flask
+sudo systemctl start http-flask
 
 # cp -r /blue-team/webapp /var/www/html/webapp
 # python3 /var/www/html/webapp/app.py &
