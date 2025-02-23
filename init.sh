@@ -58,7 +58,7 @@ sudo mkdir /var/www/html/webapp
 sudo mkdir /var/www/html/webapp/static
 sudo mkdir /var/www/html/webapp/static/css
 sudo mkdir /var/www/html/webapp/templates
-sudo curl -o /var/www/html/webapp/app.py https://raw.githubusercontent.com/ayato-shitomi/ayato-hardening-for-cloud/main/src/webapp/app.py
+sudo curl -o /var/www/html/app.py https://raw.githubusercontent.com/ayato-shitomi/ayato-hardening-for-cloud/main/src/webapp/app.py
 sudo curl -o /var/www/html/webapp/README.md https://raw.githubusercontent.com/ayato-shitomi/ayato-hardening-for-cloud/main/src/webapp/README.md
 sudo curl -o /var/www/html/webapp/static/css/style.css https://raw.githubusercontent.com/ayato-shitomi/ayato-hardening-for-cloud/main/src/webapp/static/css/style.css
 sudo curl -o /var/www/html/webapp/templates/index.html https://raw.githubusercontent.com/ayato-shitomi/ayato-hardening-for-cloud/main/src/webapp/templates/index.html

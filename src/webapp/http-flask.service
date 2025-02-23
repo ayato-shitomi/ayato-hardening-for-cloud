@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 User=root
-ExecStart=/usr/bin/python3 /root/hardening/webapp/app.py
+ExecStart=/usr/bin/python3 /var/www/html/app.py
 Restart=always
 RestartSec=10
 
