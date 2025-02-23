@@ -4,8 +4,9 @@
 
 # sudo apt update
 # sudo apt install -y build-essential
-sudo apt install -y python3-pip
-pip3 install flask --break-system-packages
+# sudo apt install -y python3-pip
+# pip3 install flask --break-system-packages
+sudo apt install -y apache2
 
 # ユーザーの初期化
 
@@ -70,12 +71,9 @@ sudo curl -o /etc/systemd/system/http-flask.service https://raw.githubuserconten
 sudo systemctl enable http-flask
 sudo systemctl start http-flask
 
-# cp -r /blue-team/webapp /var/www/html/webapp
-# python3 /var/www/html/webapp/app.py &
-# 
-# # Apache
-# 
-# cp /blue-team/webapp/README.md /var/www/html
+# Apache
+
+cp /blue-team/webapp/README.md /var/www/html
 # cp /blue-team/ports.conf /etc/apache2/ports.conf
 # apachectl start
 # 
