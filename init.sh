@@ -47,7 +47,7 @@ sudo useradd -d /var/ftp ftp
 sudo chown root:root /var/ftp
 sudo chmod og-w /var/ftp
 sudo mv /tmp/ftpd.service /etc/systemd/system/
-sudo systemctl enable ftpd
+sudo systemctl enable vsftpd
 # 
 # # FLASK
 # 
