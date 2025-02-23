@@ -52,6 +52,7 @@ sudo systemctl start ftpd
 # FLASKの初期化
 
 sudo rm -rf /var/www/html/webapp
+sudo mkdir /var/www/html/webapp
 sudo curl -o /var/www/html/webapp/app.py https://raw.githubusercontent.com/ayato-shitomi/ayato-hardening-for-cloud/main/src/webapp/app.py
 
 # cp -r /blue-team/webapp /var/www/html/webapp
