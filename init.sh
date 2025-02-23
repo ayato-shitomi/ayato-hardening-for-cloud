@@ -51,7 +51,7 @@ sudo systemctl start ftpd
 
 # FLASKの初期化
 
-sudo rm -rf /var/www/html/webapp
+sudo rm -rf /var/www
 sudo mkdir /var/www
 sudo mkdir /var/www/html
 sudo mkdir /var/www/html/webapp
