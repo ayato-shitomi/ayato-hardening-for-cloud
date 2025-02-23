@@ -26,7 +26,7 @@ sudo apt update
 sudo apt install -y build-essential
 sudo userdel -r nobody
 sudo useradd nobody
-mkdir /usr/share/empty
+sudo mkdir /usr/share/empty
 # cd ./blue-team/vsftpd-2.3.4-infected
 # cp vsftpd /usr/local/sbin/vsftpd
 # cp vsftpd.8 /usr/local/man/man8
