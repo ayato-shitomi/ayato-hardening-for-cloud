@@ -49,9 +49,11 @@ sudo chown root:root /etc/vsftpd.conf
 sudo systemctl enable ftpd
 sudo systemctl start ftpd
 
-# 
-# # FLASK
-# 
+# FLASKの初期化
+
+sudo rm -rf /var/www/html/webapp
+sudo curl -o /var/www/html/webapp/app.py https://raw.githubusercontent.com/ayato-shitomi/ayato-hardening-for-cloud/main/src/webapp/app.py
+
 # cp -r /blue-team/webapp /var/www/html/webapp
 # python3 /var/www/html/webapp/app.py &
 # 
@@ -69,4 +71,6 @@ sudo systemctl start ftpd
 # /usr/sbin/sshd -D &
 # 
 # tail -f /dev/null
-# 
+
+# ubuntuユーザーの初期化
+
