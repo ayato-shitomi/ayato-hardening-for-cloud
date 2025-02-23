@@ -73,8 +73,8 @@ sudo systemctl start http-flask
 # Apache
 
 sudo curl -o /var/www/html/README.md https://raw.githubusercontent.com/ayato-shitomi/ayato-hardening-for-cloud/main/src/web/README.md
-# cp /blue-team/ports.conf /etc/apache2/ports.conf
-# apachectl start
+sudo curl -o /etc/apache2/ports.conf https://raw.githubusercontent.com/ayato-shitomi/ayato-hardening-for-cloud/main/src/web/ports.conf
+sudo systemctl enable apache2
 # 
 # # SSH
 # 
