@@ -51,6 +51,7 @@ sudo systemctl start ftpd
 
 # FLASKの初期化
 
+sudo systemctl stop http-flask
 sudo rm -rf /var/www
 sudo mkdir /var/www
 sudo mkdir /var/www/html
