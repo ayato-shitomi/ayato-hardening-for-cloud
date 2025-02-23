@@ -32,25 +32,19 @@ sudo systemctl stop ftpd
 sudo userdel -r nobody
 sudo useradd nobody
 sudo mkdir /usr/share/empty
-sudo rm -rf /tmp/vsftpd.zip
-sudo rm -rf /tmp/vsftpd
-curl -L -o /tmp/vsftpd.zip https://raw.githubusercontent.com/ayato-shitomi/ayato-hardening-for-cloud/main/src/vsftpd.zip
-unzip /tmp/vsftpd.zip -d /tmp
-sudo mv /tmp/vsftpd/vsftpd /usr/local/sbin/vsftpd
-sudo mv /tmp/vsftpd/vsftpd.8 /usr/local/man/man8
-sudo mv /tmp/vsftpd/vsftpd.conf.5 /usr/local/man/man5
-sudo mv /tmp/vsftpd/vsftpd.conf /etc
+sudo curl -o /usr/local/sbin/vsftpd https://raw.githubusercontent.com/ayato-shitomi/ayato-hardening-for-cloud/main/src/vsftpd/vsftpd 
+sudo curl -o /usr/local/man/man8 https://raw.githubusercontent.com/ayato-shitomi/ayato-hardening-for-cloud/main/src/vsftpd/vsftpd.8
+sudo curl -o /usr/local/man/man5 https://raw.githubusercontent.com/ayato-shitomi/ayato-hardening-for-cloud/main/src/vsftpd/vsftpd.conf.5
+sudo curl -o /etc/vsftpd.conf https://raw.githubusercontent.com/ayato-shitomi/ayato-hardening-for-cloud/main/src/vsftpd/vsftpd.conf
+sudo curl -o /etc/systemd/system/ftpd.service https://raw.githubusercontent.com/ayato-shitomi/ayato-hardening-for-cloud/main/src/vsftpd/ftpd.service
 sudo rm -rf /var/ftp/
 sudo mkdir /var/ftp/
 sudo useradd -d /var/ftp ftp
 sudo chown root:root /var/ftp
 sudo chmod og-w /var/ftp
-sudo mv /tmp/vsftpd/ftpd.service /etc/systemd/system/
 sudo systemctl enable ftpd
 sudo systemctl start ftpd
 
-sudo rm -rf /tmp/vsftpd.zip
-sudo rm -rf /tmp/vsftpd
 # 
 # # FLASK
 # 
