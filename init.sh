@@ -2,8 +2,8 @@
 
 # 必要なアプリのインストール
 
-sudo apt update
-sudo apt install -y build-essential
+# sudo apt update
+# sudo apt install -y build-essential
 
 # ユーザーの初期化
 
@@ -54,8 +54,12 @@ sudo systemctl start ftpd
 sudo rm -rf /var/www
 sudo mkdir /var/www
 sudo mkdir /var/www/html
-sudo mkdir /var/www/html/webapp
+sudo mkdir /var/www/html/webapp/static
+sudo mkdir /var/www/html/webapp/static/css
+sudo mkdir /var/www/html/webapp/templates
 sudo curl -o /var/www/html/webapp/app.py https://raw.githubusercontent.com/ayato-shitomi/ayato-hardening-for-cloud/main/src/webapp/app.py
+sudo curl -o /var/www/html/webapp/static/css/style.css https://raw.githubusercontent.com/ayato-shitomi/ayato-hardening-for-cloud/main/src/webapp/static/css/style.css
+sudo curl -o /var/www/html/webapp/templates/index.html https://raw.githubusercontent.com/ayato-shitomi/ayato-hardening-for-cloud/main/src/webapp/templates/index.html
 
 # cp -r /blue-team/webapp /var/www/html/webapp
 # python3 /var/www/html/webapp/app.py &
