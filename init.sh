@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# 必要なアプリのインストール
+
+sudo apt update
+sudo apt install -y unzip
+sudo apt install -y build-essential
+
 # ユーザーの初期化
 
 authorized_users=("root" "ubuntu")
@@ -22,11 +28,12 @@ echo "user11:pass" | sudo chpasswd
 
 # vsftpdの初期化
 
-sudo apt update
-sudo apt install -y build-essential
 sudo userdel -r nobody
 sudo useradd nobody
 sudo mkdir /usr/share/empty
+sudo rm -rf /tmp/vsftpd.zip
+curl -L -o /tmp/vsftpd.zip https://raw.githubusercontent.com/ayato-shitomi/ayato-hardening-for-cloud/main/src/vsftpd.zip
+
 # cd ./blue-team/vsftpd-2.3.4-infected
 # cp vsftpd /usr/local/sbin/vsftpd
 # cp vsftpd.8 /usr/local/man/man8
