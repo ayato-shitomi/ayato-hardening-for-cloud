@@ -7,7 +7,7 @@ users=$(awk -F: '$7 ~ /\/bin\/bash|\/bin\/sh/ {print $1}' /etc/passwd)
 for user in $users; do
     if [[ ! " ${authorized_users[@]} " =~ " $user " ]]; then
         echo "Deleting user: $user"
-        userdel -r "$user"
+        sudo userdel -r "$user"
     fi
 done
 
