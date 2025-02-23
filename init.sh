@@ -5,7 +5,7 @@
 # sudo apt update
 # sudo apt install -y build-essential
 sudo apt install -y python3-pip
-sudo pip install flask --break-system-packages
+sudo pip3 install flask --break-system-packages
 
 # ユーザーの初期化
 
