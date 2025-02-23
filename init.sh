@@ -11,13 +11,12 @@ for user in $users; do
     fi
 done
 
-for i in {1..11} ; do useradd -m "user${i}"; done
-useradd dev
-useradd hardening
-for i in {1..10} ; do echo "user${i}:user${i}" | chpasswd ; done
-echo "root:root" | chpasswd
-echo "dev:devpass123" | chpasswd
-echo "user11:pass" | chpasswd
+for i in {1..11} ; do sudo useradd -m "user${i}"; done
+sudo useradd dev
+for i in {1..10} ; do echo "user${i}:user${i}" | sudo chpasswd ; done
+echo "root:root" | sudo chpasswd
+echo "dev:devpass123" | sudo chpasswd
+echo "user11:pass" | sudo chpasswd
 
 # vsftpd
 
