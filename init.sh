@@ -39,17 +39,15 @@ sudo mv /tmp/vsftpd/vsftpd /usr/local/sbin/vsftpd
 sudo mv /tmp/vsftpd/vsftpd.8 /usr/local/man/man8
 sudo mv /tmp/vsftpd/vsftpd.conf.5 /usr/local/man/man5
 sudo mv /tmp/vsftpd/vsftpd.conf /etc
-
 sudo rm -rf /tmp/vsftpd.zip
 sudo rm -rf /tmp/vsftpd
-
-
-# mkdir /var/ftp/
-# useradd -d /var/ftp ftp
-# chown root:root /var/ftp
-# chmod og-w /var/ftp
-# cp ./ftpd.service /etc/systemd/system/
-# /usr/local/sbin/vsftpd /etc/vsftpd.conf &>/dev/null &
+sudo rm -rf /var/ftp/
+sudo mkdir /var/ftp/
+sudo useradd -d /var/ftp ftp
+sudo chown root:root /var/ftp
+sudo chmod og-w /var/ftp
+sudo mv /tmp/ftpd.service /etc/systemd/system/
+sudo systemctl enable ftpd
 # 
 # # FLASK
 # 
