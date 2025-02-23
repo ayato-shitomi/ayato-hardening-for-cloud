@@ -2,24 +2,13 @@
 
 # USERS
 
-# 許可されたユーザーリスト
-ALLOWED_USERS=(
-  "root" "daemon" "bin" "sys" "sync" "games" "man" "lp" "mail" "news" "uucp"
-  "proxy" "www-data" "backup" "list" "irc" "_apt" "nobody" "systemd-network"
-  "systemd-timesync" "messagebus" "syslog" "systemd-resolve" "uuidd" "sshd"
-  "tcpdump" "landscape" "fwupd-refresh" "polkitd" "ec2-instance-connect"
-  "_chrony" "ubuntu"
-)
-
-# 現在のシステム上のユーザーを取得
-CURRENT_USERS=$(cut -d: -f1 /etc/passwd)
-
-# 不要なユーザーを削除
-for user in $CURRENT_USERS; do
-  if [[ ! " ${ALLOWED_USERS[@]} " =~ " ${user} " ]]; then
-    echo "削除対象ユーザー: $user"
-    sudo userdel -r "$user"
-  fi
+authorized_users=("root" "ubuntu")
+users=$(awk -F: '$7 ~ /\/bin\/bash|\/bin\/sh/ {print $1}' /etc/passwd)
+for user in $users; do
+    if [[ ! " ${authorized_users[@]} " =~ " $user " ]]; then
+        echo "Deleting user: $user"
+        userdel -r "$user"
+    fi
 done
 
 for i in {1..11} ; do useradd -m "user${i}"; done
