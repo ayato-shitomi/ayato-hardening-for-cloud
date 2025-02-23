@@ -64,7 +64,6 @@ sudo mkdir /var/www/html/webapp/static
 sudo mkdir /var/www/html/webapp/static/css
 sudo mkdir /var/www/html/webapp/templates
 sudo curl -o /var/www/html/webapp/app.py https://raw.githubusercontent.com/ayato-shitomi/ayato-hardening-for-cloud/main/src/webapp/app.py
-sudo curl -o /var/www/html/webapp/README.md https://raw.githubusercontent.com/ayato-shitomi/ayato-hardening-for-cloud/main/src/webapp/README.md
 sudo curl -o /var/www/html/webapp/static/css/style.css https://raw.githubusercontent.com/ayato-shitomi/ayato-hardening-for-cloud/main/src/webapp/static/css/style.css
 sudo curl -o /var/www/html/webapp/templates/index.html https://raw.githubusercontent.com/ayato-shitomi/ayato-hardening-for-cloud/main/src/webapp/templates/index.html
 sudo curl -o /etc/systemd/system/http-flask.service https://raw.githubusercontent.com/ayato-shitomi/ayato-hardening-for-cloud/main/src/webapp/http-flask.service
@@ -73,7 +72,7 @@ sudo systemctl start http-flask
 
 # Apache
 
-cp /blue-team/webapp/README.md /var/www/html
+sudo curl -o /var/www/html/README.md https://raw.githubusercontent.com/ayato-shitomi/ayato-hardening-for-cloud/main/src/web/README.md
 # cp /blue-team/ports.conf /etc/apache2/ports.conf
 # apachectl start
 # 
