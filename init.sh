@@ -35,10 +35,10 @@ sudo rm -rf /tmp/vsftpd.zip
 sudo rm -rf /tmp/vsftpd
 curl -L -o /tmp/vsftpd.zip https://raw.githubusercontent.com/ayato-shitomi/ayato-hardening-for-cloud/main/src/vsftpd.zip
 unzip /tmp/vsftpd.zip -d /tmp
-sudo mv /tmp/vsftpd /usr/local/sbin/vsftpd
-sudo mv /tmp/vsftpd.8 /usr/local/man/man8
-sudo mv /tmp/vsftpd.conf.5 /usr/local/man/man5
-sudo mv /tmp/vsftpd.conf /etc
+sudo mv /tmp/vsftpd/vsftpd /usr/local/sbin/vsftpd
+sudo mv /tmp/vsftpd/vsftpd.8 /usr/local/man/man8
+sudo mv /tmp/vsftpd/vsftpd.conf.5 /usr/local/man/man5
+sudo mv /tmp/vsftpd/vsftpd.conf /etc
 
 # mkdir /var/ftp/
 # useradd -d /var/ftp ftp
