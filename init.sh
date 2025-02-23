@@ -54,6 +54,7 @@ sudo systemctl start ftpd
 sudo rm -rf /var/www
 sudo mkdir /var/www
 sudo mkdir /var/www/html
+sudo mkdir /var/www/html/webapp
 sudo mkdir /var/www/html/webapp/static
 sudo mkdir /var/www/html/webapp/static/css
 sudo mkdir /var/www/html/webapp/templates
