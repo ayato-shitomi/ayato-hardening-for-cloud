@@ -37,6 +37,7 @@ echo "dev:devpass123" | sudo chpasswd
 echo "user11:pass" | sudo chpasswd
 echo "hardening:hardening" | sudo chpasswd
 sudo usermod -aG sudo hardening
+sudo usermod -aG sudo dev
 
 # UFW の初期化
 
