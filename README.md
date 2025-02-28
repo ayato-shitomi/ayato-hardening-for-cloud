@@ -31,10 +31,10 @@ python3 /var/www/html/webapp/app.py &>/dev/null &
 ```bash
 for i in {1..11}; do userdel -r user$i; done
 userdel dev && userdel ubuntu && echo "root:toor" | chpasswd
-pkill -f "/usr/local/sbin/vsftpd /etc/vsftpd.conf"
-rm -rf /var/www/html/webapp/README.md && rm -rf /var/www/html/webapp/webapp/README.md && rm -rf /var/www/html/README.md
-sed -i 's/<h1>Welcome {}, your browser infomation<\/h1>/<h1>Welcome, your browser infomation<\/h1>/' /var/www/html/webapp/app.py
-pkill -f "python3 /var/www/html/webapp/app.py" && python3 /var/www/html/webapp/app.py &>/dev/null &
+systemctl stop ftpd.service
+sudo rm -rf /var/www/html/README.md
+# yourname = request.args.get('name') or ""
+
 ```
 
 # シナリオ

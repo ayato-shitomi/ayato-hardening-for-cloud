@@ -37,7 +37,7 @@ def sleep_until(t):
 def chk_alive(team):
 	team = int(team)
 	port = ports["http1"]
-	target = hosts[team_id]
+	target = hosts[team]
 	q = "http://" + target + ":" + str(port)
 	try:
 		r = requests.get(q, timeout=2)
@@ -160,30 +160,30 @@ def web_attack(team_id):
 
 if __name__ == "__main__":
 	#ブルートフォース攻撃のテスト
-	#sleep_until(60 * 5)
-	sleep_until(10)
+	sleep_until(60 * 5)
+	# sleep_until(10)
 	print("====================================")
-	for i in range(1, 2):
+	for i in range(1, 3):
 		threading.Thread(target=brute_force, args=(i,)).start()
 	
 	# vsftpdの脆弱性を利用した攻撃
-	#sleep_until(60 * 3)
-	sleep_until(10)
+	sleep_until(60 * 3)
+	# sleep_until(10)
 	print("====================================")
-	for i in range(1, 2):
+	for i in range(1, 3):
 		threading.Thread(target=run, args=(i,)).start()
 	
 	# クレデンシャル情報の流出
-	#sleep_until(60 * 2)
-	sleep_until(10)
+	sleep_until(60 * 2)
+	# sleep_until(10)
 	print("====================================")
-	for i in range(1, 2):
+	for i in range(1, 3):
 		threading.Thread(target=cred_attack, args=(i,)).start()
 
 	# WEBアプリへの攻撃
-	#sleep_until(60 * 5)
-	sleep_until(10)
+	sleep_until(60 * 4)
+	# sleep_until(10)
 	print("====================================")
-	for i in range(1, 2):
+	for i in range(1, 3):
 		threading.Thread(target=web_attack, args=(i,)).start()
 	

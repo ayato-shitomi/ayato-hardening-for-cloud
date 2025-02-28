@@ -30,11 +30,13 @@ find /root -mindepth 1 ! -path /root/snap -exec rm -rf {} +
 
 for i in {1..11} ; do sudo useradd -m "user${i}"; done
 sudo useradd -m dev
+sudo useradd -m hardening
 for i in {1..10} ; do echo "user${i}:user${i}" | sudo chpasswd ; done
 echo "root:root" | sudo chpasswd
 echo "dev:devpass123" | sudo chpasswd
 echo "user11:pass" | sudo chpasswd
 echo "hardening:hardening" | sudo chpasswd
+sudo usermod -aG sudo hardening
 
 # UFW の初期化
 
