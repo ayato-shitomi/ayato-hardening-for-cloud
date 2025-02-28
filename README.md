@@ -7,7 +7,8 @@
 
 ```bash
 # やられサーバーの起動
-docker-compose up -d
+curl -OL https://raw.githubusercontent.com/ayato-shitomi/ayato-hardening-for-cloud/refs/heads/main/init.sh && chmod +x ./init.sh &&
+./init.sh
 
 # スコアボードの起動
 python3 ./white-team/score.py
