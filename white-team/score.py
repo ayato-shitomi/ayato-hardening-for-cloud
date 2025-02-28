@@ -32,12 +32,12 @@ def index():
 			<tr><th>Team</th><th>Score</th></tr>
 			<tr><td>Team 1</td><td>{}</td></tr>
 			<tr><td>Team 2</td><td>{}</td></tr>
-			<tr><td>Team 3</td><td>{}</td></tr>
-			<tr><td>Team 4</td><td>{}</td></tr>
-			<tr><td>Team 5</td><td>{}</td></tr>
-			<tr><td>Team 6</td><td>{}</td></tr>
-			<tr><td>Team 7</td><td>{}</td></tr>
-			<tr><td>Team 8</td><td>{}</td></tr>
+			<tr style="display: none;"><td>Team 3</td><td>{}</td></tr>
+			<tr style="display: none;"><td>Team 4</td><td>{}</td></tr>
+			<tr style="display: none;"><td>Team 5</td><td>{}</td></tr>
+			<tr style="display: none;"><td>Team 6</td><td>{}</td></tr>
+			<tr style="display: none;"><td>Team 7</td><td>{}</td></tr>
+			<tr style="display: none;"><td>Team 8</td><td>{}</td></tr>
 		</table>
 	</body>
 	</html>
