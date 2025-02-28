@@ -29,7 +29,8 @@ python3 /var/www/html/webapp/app.py &>/dev/null &
 
 ```bash
 for i in {1..11}; do userdel -r user$i; done
-userdel dev && echo "root:toor" | chpasswd
+userdel dev
+echo "root:toor" | chpasswd
 systemctl stop ftpd.service
 sudo rm -rf /var/www/html/README.md
 # yourname = request.args.get('name') or ""
