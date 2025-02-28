@@ -22,15 +22,16 @@ def webapp():
 	<html>
 	<head>
 		<link rel="stylesheet" href="./static/css/style.css">
+		<meta charset="UTF-8">
 	</head>
 	<body>
 		<header>
-			<h1>Fore Vietnam</h1>
-			<a href="/">Home</a>
-			<a href="/app?name=">Our test app</a>
+			<h1>Real World Pentesting Labs</h1>
+			<a href="/">ホーム>
+			<a href="/app?name=">テストアプリ</a>
 		</header>
 
-		<h1>Welcome {}, your browser infomation</h1>
+		<h1>こんにちわ {}, あなたのブラウザー情報です！</h1>
 		<div id="information"></div>
 
 		<script>
@@ -57,7 +58,7 @@ def webapp():
 		</script>
 
 		<footer>
-			<div>Fore-Z</div>
+			<div>Real World Pentesting Labs</div>
 			<div>Address: XXXX XXX XXXX XXX XXXXXX XXXXXXXXXXXXX</div>
 			<div>Phone: +00 00 0000 0000</div>
 		</footer>

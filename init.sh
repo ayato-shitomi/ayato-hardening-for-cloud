@@ -28,6 +28,10 @@ echo "root:root" | sudo chpasswd
 echo "dev:devpass123" | sudo chpasswd
 echo "user11:pass" | sudo chpasswd
 
+# ユーザーディレクトリの初期化
+
+
+
 # vsftpdの初期化
 
 sudo systemctl stop ftpd
