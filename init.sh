@@ -10,7 +10,7 @@
 
 # ユーザーの初期化
 
-authorized_users=("root" "ubuntu")
+authorized_users=("root" "ubuntu" "hardening")
 users=$(awk -F: '$7 ~ /\/bin\/bash|\/bin\/sh/ {print $1}' /etc/passwd)
 for user in $users; do
     if [[ ! " ${authorized_users[@]} " =~ " $user " ]]; then
@@ -34,6 +34,7 @@ for i in {1..10} ; do echo "user${i}:user${i}" | sudo chpasswd ; done
 echo "root:root" | sudo chpasswd
 echo "dev:devpass123" | sudo chpasswd
 echo "user11:pass" | sudo chpasswd
+echo "hardening:hardening" | sudo chpasswd
 
 # UFW の初期化
 
