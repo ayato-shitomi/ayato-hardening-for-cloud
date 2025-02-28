@@ -2,11 +2,11 @@
 
 # 必要なアプリのインストール
 
-# sudo apt update
-# sudo apt install -y build-essential
-# sudo apt install -y python3-pip
-# pip3 install flask
-# sudo apt install -y apache2
+sudo apt update
+sudo apt install -y build-essential
+sudo apt install -y python3-pip
+pip3 install flask
+sudo apt install -y apache2
 
 # ユーザーの初期化
 

