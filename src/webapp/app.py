@@ -1,6 +1,6 @@
 
 import sys
-sys.path.append('/home/ubuntu/.local/lib/python3.12/site-packages')
+# sys.path.append('/home/ubuntu/.local/lib/python3.12/site-packages')
 
 from flask import Flask, render_template, render_template_string
 from flask import request
