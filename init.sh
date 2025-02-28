@@ -19,6 +19,13 @@ for user in $users; do
     fi
 done
 
+# ユーザーディレクトリの初期化
+
+for i in {1..11} ; do sudo rm -rf /home/"user${i}"; done
+rm -rf /home/dev
+# root
+# ubuntu
+
 # ユーザーの追加
 
 for i in {1..11} ; do sudo useradd -m "user${i}"; done
@@ -28,9 +35,10 @@ echo "root:root" | sudo chpasswd
 echo "dev:devpass123" | sudo chpasswd
 echo "user11:pass" | sudo chpasswd
 
-# ユーザーディレクトリの初期化
+# UFW の初期化
 
-
+sudo ufw reset
+sudo ufw disable
 
 # vsftpdの初期化
 
@@ -82,16 +90,8 @@ sudo curl -o /etc/apache2/ports.conf https://raw.githubusercontent.com/ayato-shi
 sudo systemctl enable apache2
 sudo systemctl start apache2
 
-# 
-# # SSH
-# 
-# mkdir /var/run/sshd
-# sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
-# sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/' /etc/ssh/sshd_config
-# /usr/sbin/sshd -D &
-# 
+# SSH
 
-
-# ubuntuユーザーの初期化
-
-
+sudo sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+sudo sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/' /etc/ssh/sshd_config
+sudo systemctl restart ssh
