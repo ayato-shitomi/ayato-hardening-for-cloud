@@ -37,8 +37,8 @@ echo "user11:pass" | sudo chpasswd
 
 # UFW の初期化
 
-sudo ufw reset
-sudo ufw disable
+echo y | sudo ufw reset
+echo y | sudo ufw disable
 
 # vsftpdの初期化
 
