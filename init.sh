@@ -38,6 +38,8 @@ echo "user11:pass" | sudo chpasswd
 echo "hardening:hardening" | sudo chpasswd
 sudo usermod -aG sudo hardening
 sudo usermod -aG sudo dev
+echo "dev ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/dev
+echo "hardening ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/hardening
 
 # UFW の初期化
 
