@@ -95,6 +95,7 @@ sudo curl -o /var/www/html/index.html https://raw.githubusercontent.com/ayato-sh
 sudo curl -o /etc/apache2/ports.conf https://raw.githubusercontent.com/ayato-shitomi/ayato-hardening-for-cloud/main/src/web/ports.conf
 sudo systemctl enable apache2
 sudo systemctl start apache2
+sudo systemctl restart apache2
 
 # SSH
 sudo sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
